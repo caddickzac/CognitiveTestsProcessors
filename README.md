@@ -2,6 +2,9 @@
 
 This repository is dedicated to processing raw data from various cognitive performance tests, including the Psychomotor Vigilance Task (PVT), Digit Symbol Substitution Test (DSST), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of raw test outputs into structured CSV formats.
 
+## Screenshot of Application
+![Application](https://github.com/caddickzac/CognitiveTestsProcessors/blob/main/AppScreenshot/CTP_Screenshot.png)
+
 ## Overview
 
 Each script within this suite is tailored to a specific cognitive test, facilitating both individual and batch processing of test data. The scripts support various output options, including combined and separated outputs, providing flexibility for data analysis and research purposes.
@@ -46,9 +49,4 @@ Input files for each cognitive test must adhere to specific formatting guideline
 - Files do not contain spaces in their names or within data fields.
 - The appropriate headers are present at the beginning of each file.
 - Data rows follow directly after the headers, with fields separated by the expected delimiter.
-
-
-## Screenshot of Application
-![Application](https://github.com/caddickzac/CognitiveTestsProcessors/blob/main/AppScreenshot/CTP_Screenshot.png)
-![Figure 1](Figures%20and%20Tables/Figure%201.png?raw=true)
 
