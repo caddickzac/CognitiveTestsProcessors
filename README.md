@@ -46,3 +46,9 @@ Input files for each cognitive test must adhere to specific formatting guideline
 - Files do not contain spaces in their names or within data fields.
 - The appropriate headers are present at the beginning of each file.
 - Data rows follow directly after the headers, with fields separated by the expected delimiter.
+
+
+## Screenshot of Application
+![Application](https://github.com/caddickzac/CognitiveTestsProcessors/blob/main/AppScreenshot/CTP_Screenshot.png)
+![Figure 1](Figures%20and%20Tables/Figure%201.png?raw=true)
+
