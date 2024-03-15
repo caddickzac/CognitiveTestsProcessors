@@ -1,54 +1,57 @@
-# Cognitive Data Batch Processor to ZipCSV
+# Cognitive Tests Data Processing Suite
 
-This Python script, `CognitiveDataBatchProcessor_to_ZipCSV.py`, streamlines the processing of cognitive performance test data. It combines batch processing with a user-friendly Streamlit web interface, allowing users to upload multiple text files, process them, and download the results as a single zipped CSV file.
+This repository houses a suite of Python scripts designed to process cognitive performance test data, leveraging the Streamlit framework for an intuitive user interface. The scripts facilitate the transformation of raw text files into structured CSV formats, supporting both individual and batch processing with options for combined or separated outputs.
+
+## Scripts Overview
+
+1. **pvt_bulk_text_to_csv_zip.py**: Converts multiple text files into individual CSV files and packages them into a single ZIP file for download. Ideal for scenarios requiring separate data files for each test subject or session.
+
+2. **pvt_bulk_text_to_single_csv.py**: Aggregates data from multiple text files into a single CSV file, appending each file's data into one comprehensive dataset. This script is perfect for users who need to consolidate data for batch analysis.
 
 ## Features
 
-- **Batch Processing**: Processes multiple text files simultaneously.
-- **Data Extraction**: Extracts essential metadata and performance data from each file.
-- **Combined Output**: Consolidates data into a single zipped CSV file for download.
-- **Streamlit Interface**: Offers a straightforward web interface for easy uploads and downloads.
+- **Batch Processing**: Supports processing of multiple files at once.
+- **Flexible Output**: Choose between individual CSVs (zipped) or a single combined CSV file.
+- **Metadata Extraction**: Extracts and includes relevant metadata in the CSV outputs.
+- **Streamlit Interface**: Provides an easy-to-use web interface for file uploads and data downloads.
+- **Customizable Data Processing**: Easily adaptable scripts to accommodate different cognitive test data formats.
 
 ## Installation
 
-To set up and use the Cognitive Data Batch Processor:
+Ensure Python 3.x is installed on your system, then clone this repository and install the required dependencies:
 
-1. **Clone the Repository**:
-
-git clone https://github.com/yourusername/CognitiveTestsProcessors.git
+```bash
+git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
 cd CognitiveTestsProcessors
-
-
-2. **Install Dependencies**:
-Ensure Python 3.x is installed on your system. Then, install required packages:
-
 pip install pandas streamlit
+```
 
-3. **Run Streamlit App**: Execute the command, replacing `scriptName.py` with your script's name:
+Usage
+Each script is designed as a Streamlit app. To run an app, navigate to the script's directory in your command line and execute the appropriate command:
 
-streamlit run scriptName.py
+For pvt_bulk_text_to_csv_zip.py:
 
-Example:
+```bash
+Copy code
+streamlit run pvt_bulk_text_to_csv_zip.py
+```
+For pvt_bulk_text_to_single_csv.py:
+```
 
+bash
+Copy code
 streamlit run pvt_bulk_text_to_single_csv.py
+Follow the on-screen instructions in the Streamlit interface to upload your text files and download the processed CSV data.
 
-4. **Use the App**: Streamlit will open your web browser to the app. Follow instructions to upload files and download the processed data.
+Input File Format
+Input text files should conform to a specific format, detailed in each script's documentation. Typically, files should include a set of predefined headers followed by data rows corresponding to cognitive test results and metadata.
 
-## Input File Format
+Contributing
+Contributions are welcome! If you have suggestions for improving the scripts or extending their functionality, please feel free to fork the repository, make your changes, and submit a pull request.
 
-Ensure input text files are correctly formatted, including appropriate headers and data structure as specified in the script documentation.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contributing
-
-Contributions to enhance functionality or fix issues are welcome. Fork the repository, make changes, and submit a pull request.
-
-## License
-
-This project is under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Acknowledgments
-
-- Thanks to all contributors and the cognitive science community for valuable feedback.
-- Everyone who contributed to this project.
-
-
+Acknowledgments
+Thank you to all the contributors who have helped refine and enhance these scripts.
+Gratitude to the cognitive science community for their invaluable input and feedback.
