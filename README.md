@@ -14,7 +14,6 @@ Each script within this suite is tailored to a specific cognitive test, facilita
 - **Serial Addition Test Processing Scripts**:
   - `serialAddition_bulk_text_to_csv_zip.py`:  Packages multiple PVT test outputs into individual CSV files and zips them into a single file.
   - `serialAddition_bulk_text_to_single_csv.py`: Combines multiple PVT test outputs into a single CSV file.
-  - Scripts for data processing scripts will also be included, tailored to handle the specific data output formats associated with Serial Addition tests.
 
 ## Installation
 
