@@ -34,12 +34,12 @@ pip install pandas streamlit
 ```
 
 ## Usage
-Each script is designed to be run as a Streamlit app. To operate an app, navigate to the script's directory and run the appropriate command in your command line:
+Each of the processing scripts are designed to run within the main Streamlit app. To operate an app, navigate to the script's directory and run the following command in your command line:
 ```bash
-streamlit run script_name.py
+streamlit run CognitiveTestsProcessors.py
 ```
 
-Replace script_name.py with the name of the script you wish to run (e.g., pvt_bulk_text_to_csv_zip.py). Follow the on-screen instructions to upload your text files and download the processed data.
+Follow the on-screen instructions to upload your text files and download the processed data.
 
 ## Input File Format
 Input files for each cognitive test must adhere to specific formatting guidelines, including predefined headers and data structure. Ensure that:
