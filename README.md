@@ -34,7 +34,7 @@ pip install pandas streamlit
 ```
 
 ## Usage
-Each of the processing scripts are designed to run within the main Streamlit app. To operate an app, navigate to the script's directory and run the following command in your command line:
+Each of the processing scripts are designed to run within the main Streamlit app. To operate the app navigate to the main directory and run the following command in your command line:
 ```bash
 streamlit run CognitiveTestsProcessors.py
 ```
