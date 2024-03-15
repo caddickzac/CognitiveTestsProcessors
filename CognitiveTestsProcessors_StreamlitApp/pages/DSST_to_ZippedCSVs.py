@@ -89,7 +89,7 @@ def main():
                     "Symbol1", "Symbol2","Symbol3", 
                     "Symbol4", "Symbol5", "Symbol6", 
                     "Symbol7", "Symbol8", "Symbol9",
-                    "SymbolList", "NestSymbolStim", "RandomTrialList.Cycle", "RandomTrialList.Sample",
+                    "SymbolList", "NestSymbolStim", "RandomTrialList.Cycle", "RandomTrialList.Sample"
                 ]
 
                 log_frame_data = extract_data_from_log_frames(content, headers)
