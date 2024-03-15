@@ -1,0 +1,123 @@
+import streamlit as st
+import pandas as pd
+import os
+import zipfile
+import tempfile
+
+def extract_metadata_from_content(content_lines):
+    """
+    Extracts metadata from content lines based on specified headers.
+    """
+    headers = [
+        "Experiment",
+        "SessionDate",
+        "SessionTime",
+        "Subject",
+        "Session",
+        "DataFile.Basename",
+        "RandomSeed",
+        "Group",
+        "Display.RefreshRate"
+    ]
+    
+    meta_data = {}
+    
+    for line in content_lines:
+        parts = line.split(": ", 1)
+        if len(parts) == 2:
+            key, value = parts
+            if key in headers:
+                meta_data[key] = value
+    
+    return meta_data
+
+def extract_data_from_log_frames(content_lines, headers):
+    """
+    Extracts data from log frames based on specified headers.
+    """
+    data = []
+    current_frame_data = {}
+    for line in content_lines:
+        if line.strip() == '*** LogFrame Start ***':
+            if current_frame_data:  # Save previous frame data
+                data.append(current_frame_data)
+            current_frame_data = {}  # Reset for new frame
+        elif line.strip() == '*** LogFrame End ***':
+            continue  # Skip end marker
+        else:
+            for header in headers:
+                header_with_colon = header + ":"
+                if line.startswith(header_with_colon):
+                    key = header  # Use header without colon as the key
+                    value = line.replace(header_with_colon, "").strip()
+                    current_frame_data[key] = value
+                    break
+
+    if current_frame_data:  # Add the last frame if not empty
+        data.append(current_frame_data)
+
+    return data
+
+# Streamlit app
+def main():
+    st.title("DSST Output Conversion: Multiple Text Files to Zipped CSV Files")
+
+    uploaded_files = st.file_uploader("Choose your files", type="txt", accept_multiple_files=True)
+
+    if uploaded_files:
+        # Create a temporary directory to hold the CSVs
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            zip_name = os.path.join(tmpdirname, "processed_files.zip")
+
+            for uploaded_file in uploaded_files:
+                # Process each file
+                base_name = os.path.splitext(uploaded_file.name)[0]
+                output_file_name = f"{base_name}.csv"
+                
+                content = uploaded_file.getvalue().decode("utf-16").replace("\t", "").splitlines()
+                
+                # Your existing processing code here, for each uploaded file
+                meta_data = extract_metadata_from_content(content)
+                meta_data_df = pd.DataFrame([meta_data])
+            
+                headers = [
+                    "FixedTrialList", "SymbolStim", "CorrectAnswer", "StimState", "Running",
+                    "TrialList.Cycle", "TrialList.Sample", "Stimulus.DEVICE", "Stimulus.OnsetDelay",
+                    "Stimulus.OnsetTime", "Stimulus.DurationError", "Stimulus.RTTime", "Stimulus.ACC", 
+                    "Stimulus.RT", "Stimulus.RESP", "Stimulus.CRESP", "Stimulus.OnsetToOnsetTime",
+                    "RandomTrialList", 
+                    "Symbol1", "Symbol2","Symbol3", 
+                    "Symbol4", "Symbol5", "Symbol6", 
+                    "Symbol7", "Symbol8", "Symbol9",
+                    "SymbolList", "NestSymbolStim", "RandomTrialList.Cycle", "RandomTrialList.Sample",
+                ]
+
+                log_frame_data = extract_data_from_log_frames(content, headers)
+                df_log_frames = pd.DataFrame(log_frame_data)
+                # Then add "TrialNum" column starting from 0
+                df_log_frames.insert(1, 'TrialNum', range(0, len(df_log_frames)))
+
+                repeated_meta_data_df = pd.concat([meta_data_df] * len(df_log_frames), ignore_index=True)
+                final_df = pd.concat([repeated_meta_data_df, df_log_frames], axis=1)
+
+                st.dataframe(final_df)
+
+                csv_file_path = os.path.join(tmpdirname, f"{os.path.splitext(uploaded_file.name)[0]}.csv")
+                
+                # Save DataFrame to CSV
+                final_df.to_csv(csv_file_path, index=False)
+            
+            # Zip all the CSV files in the temporary directory
+            with zipfile.ZipFile(zip_name, 'w') as zipf:
+                for file in os.listdir(tmpdirname):
+                    file_path = os.path.join(tmpdirname, file)
+                    zipf.write(file_path, arcname=file)
+
+            with open(zip_name, 'rb') as f:
+                st.download_button(label="Download All CSVs as ZIP",
+                    data=f.read(),
+                    file_name="processed_csvs.zip",
+                    mime="application/zip")
+
+if __name__ == "__main__":
+    main()
