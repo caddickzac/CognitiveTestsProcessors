@@ -30,28 +30,19 @@ Usage
 Each script is designed as a Streamlit app. To run an app, navigate to the script's directory in your command line and execute the appropriate command:
 
 For pvt_bulk_text_to_csv_zip.py:
-
 ```bash
-Copy code
 streamlit run pvt_bulk_text_to_csv_zip.py
 ```
-For pvt_bulk_text_to_single_csv.py:
-```
 
-bash
-Copy code
+
+For pvt_bulk_text_to_single_csv.py:
+```bash
 streamlit run pvt_bulk_text_to_single_csv.py
+```
 Follow the on-screen instructions in the Streamlit interface to upload your text files and download the processed CSV data.
 
-Input File Format
-Input text files should conform to a specific format, detailed in each script's documentation. Typically, files should include a set of predefined headers followed by data rows corresponding to cognitive test results and metadata.
+## Input File Format
+- Predefined Headers: Each file should start with a set of predefined headers that correspond to the data fields expected by the script. These headers should match exactly with those expected by the scripts, including the correct order and spelling.
+- Data Rows: Following the headers, each file should contain rows of data representing the cognitive test results and associated metadata. Each data field must be separated by a specific delimiter (e.g., comma, tab) as expected by the script.
+- No Spaces in File Names: Ensure that the file names do not include spaces. Use underscores (_) or hyphens (-) as separators if necessary.
 
-Contributing
-Contributions are welcome! If you have suggestions for improving the scripts or extending their functionality, please feel free to fork the repository, make your changes, and submit a pull request.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Acknowledgments
-Thank you to all the contributors who have helped refine and enhance these scripts.
-Gratitude to the cognitive science community for their invaluable input and feedback.
