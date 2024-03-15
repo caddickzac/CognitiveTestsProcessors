@@ -12,9 +12,7 @@ This repository houses a suite of Python scripts designed to process cognitive p
 
 - **Batch Processing**: Supports processing of multiple files at once.
 - **Flexible Output**: Choose between individual CSVs (zipped) or a single combined CSV file.
-- **Metadata Extraction**: Extracts and includes relevant metadata in the CSV outputs.
 - **Streamlit Interface**: Provides an easy-to-use web interface for file uploads and data downloads.
-- **Customizable Data Processing**: Easily adaptable scripts to accommodate different cognitive test data formats.
 
 ## Installation
 
