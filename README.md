@@ -12,7 +12,7 @@ Each script within this suite is tailored to a specific cognitive test, facilita
 - **DSST Processing Scripts**:
   - Scripts for processing DSST test data will follow a similar pattern, focusing on extracting, transforming, and consolidating test results.
 - **Serial Addition Test Processing Scripts**:
-  - ADD test data processing scripts are also included, tailored to handle the specific data output formats associated with ADD tests.
+  - Serial Addition test data processing scripts are also included, tailored to handle the specific data output formats associated with Serial Addition tests.
 
 ## Installation
 
