@@ -7,7 +7,7 @@ This repository is dedicated to processing raw data from various cognitive perfo
 Each script within this suite is tailored to a specific cognitive test, facilitating both individual and batch processing of test data. The scripts support various output options, including combined and separated outputs, providing flexibility for data analysis and research purposes.
 
 ### Main Streamlit Script
-- `CognitiveTestsProcessors`: Script that runs Streamlit application. 
+- `CognitiveTestsProcessors.py`: Script that runs Streamlit application. 
 
 ### Processing Scripts
 - **PVT**:
