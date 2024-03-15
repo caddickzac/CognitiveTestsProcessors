@@ -1,6 +1,6 @@
 # Cognitive Performance Data Processing Suite
 
-This repository is dedicated to processing raw data from various cognitive performance tests, including the Psychomotor Vigilance Task (PVT), Digit Symbol Substitution Test (DSST), and Serial Addition tests. Utilizing Python and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of raw test outputs into structured CSV formats.
+This repository is dedicated to processing raw data from various cognitive performance tests, including the Psychomotor Vigilance Task (PVT), Digit Symbol Substitution Test (DSST), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of raw test outputs into structured CSV formats.
 
 ## Overview
 
