@@ -1,4 +1,4 @@
-# Cognitive Tests Data Processing Suite
+# Cognitive Tests Data Processing Suite: Psychomotor Vigilance (PVT)
 
 This repository houses a suite of Python scripts designed to process cognitive performance test data, leveraging the Streamlit framework for an intuitive user interface. The scripts facilitate the transformation of raw text files into structured CSV formats, supporting both individual and batch processing with options for combined or separated outputs.
 
