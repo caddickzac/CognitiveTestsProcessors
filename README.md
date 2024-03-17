@@ -26,10 +26,10 @@ Each script within this suite is tailored to a specific cognitive test, facilita
 
 1. Ensure Python 3.x and pip are installed on your system.
 2. Clone the repository:
-   ```bash
-   git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
-   cd CognitiveTestsProcessors
-   ```
+```bash
+git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
+cd CognitiveTestsProcessors
+```
 
 Install required dependencies:
 ```bash
@@ -45,8 +45,4 @@ streamlit run CognitiveTestsProcessors.py
 Follow the on-screen instructions to upload your text files and download the processed data.
 
 ## Input File Format
-Input files for each cognitive test must adhere to specific formatting guidelines, including predefined headers and data structure. Ensure that:
-- Files do not contain spaces in their names or within data fields.
-- The appropriate headers are present at the beginning of each file.
-- Data rows follow directly after the headers, with fields separated by the expected delimiter.
-
+Input files for each cognitive test must be text (.txt) files.
