@@ -24,7 +24,7 @@ Each script within this suite is tailored to a specific cognitive test, facilita
 
 ## Installation
 
-1. Ensure Python 3.x and pip are installed on your system.
+1. Ensure Python 3 and pip are installed on your system. Additionally, the Python libraries Pandas and Streamlit are required.
 2. Clone the repository:
 ```bash
 git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
