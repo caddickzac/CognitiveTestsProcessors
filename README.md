@@ -1,6 +1,6 @@
 # Cognitive Performance Data Processing Suite
 
-This repository is dedicated to post-processing raw data from various cognitive performance tests within E-Prime, including the [Psychomotor Vigilance Task (PVT)](https://support.pstnet.com/hc/en-us/articles/360008697713-Psychomotor-Vigilance-Task-PVT-30113), [Digit Symbol Substitution Test (DSST)](https://support.pstnet.com/hc/en-us/articles/360007837614-Digit-Symbol-Substitution-Test-DSST-30114), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of raw test outputs into structured CSV formats.
+This repository is dedicated to post-processing raw data from various cognitive performance tests within E-Prime, including the [Psychomotor Vigilance Task (PVT)](https://support.pstnet.com/hc/en-us/articles/360008697713-Psychomotor-Vigilance-Task-PVT-30113), [Digit Symbol Substitution Test (DSST)](https://support.pstnet.com/hc/en-us/articles/360007837614-Digit-Symbol-Substitution-Test-DSST-30114), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of unprocessed test outputs into structured CSV formats.
 
 ## Screenshot of Application
 ![Application](https://github.com/caddickzac/CognitiveTestsProcessors/blob/main/AppScreenshot/CTP_Screenshot.png)
