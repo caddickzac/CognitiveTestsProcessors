@@ -62,3 +62,5 @@ streamlit run CognitiveTestsProcessors.py
 REM Pause command to keep the terminal open after the script runs (optional)
 pause
 ```
+3. Save and close text document.
+4. Change file type from ".txt" to ".bat"
