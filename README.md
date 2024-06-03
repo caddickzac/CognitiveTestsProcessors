@@ -1,6 +1,6 @@
 # Cognitive Performance Data Processing Suite
 
-This repository is dedicated to processing raw data from various cognitive performance tests, including the Psychomotor Vigilance Task (PVT), Digit Symbol Substitution Test (DSST), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of raw test outputs into structured CSV formats.
+This repository is dedicated to post-processing raw data from various cognitive performance tests within E-Prime, including the [Psychomotor Vigilance Task (PVT)](https://support.pstnet.com/hc/en-us/articles/360008697713-Psychomotor-Vigilance-Task-PVT-30113), [Digit Symbol Substitution Test (DSST)](https://support.pstnet.com/hc/en-us/articles/360007837614-Digit-Symbol-Substitution-Test-DSST-30114), and Serial Addition tests. Utilizing Python, Pandas, and the Streamlit framework, it offers a suite of scripts designed for an intuitive user interface, allowing for the efficient transformation of unprocessed test outputs into structured CSV formats.
 
 ## Screenshot of Application
 ![Application](https://github.com/caddickzac/CognitiveTestsProcessors/blob/main/AppScreenshot/CTP_Screenshot.png)
@@ -24,12 +24,12 @@ Each script within this suite is tailored to a specific cognitive test, facilita
 
 ## Installation
 
-1. Ensure Python 3.x and pip are installed on your system.
+1. Ensure Python 3 and pip are installed on your system. Additionally, the Python libraries Pandas and Streamlit are required.
 2. Clone the repository:
-   ```bash
-   git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
-   cd CognitiveTestsProcessors
-   ```
+```bash
+git clone https://github.com/caddickzac/CognitiveTestsProcessors.git
+cd CognitiveTestsProcessors
+```
 
 Install required dependencies:
 ```bash
@@ -45,8 +45,25 @@ streamlit run CognitiveTestsProcessors.py
 Follow the on-screen instructions to upload your text files and download the processed data.
 
 ## Input File Format
-Input files for each cognitive test must adhere to specific formatting guidelines, including predefined headers and data structure. Ensure that:
-- Files do not contain spaces in their names or within data fields.
-- The appropriate headers are present at the beginning of each file.
-- Data rows follow directly after the headers, with fields separated by the expected delimiter.
+Input files for each cognitive test must be text (.txt) files.
 
+## Create a batch file to run program
+1. Create text document on desktop
+2. Enter code below, changing "[working directory]" to your local directory where the streamlit app is saved. 
+
+```bash
+@echo off
+REM set working directory
+cd [working directory]
+
+REM Activate the virtual environment
+call venv/Scripts/activate
+
+REM Run the Streamlit app using the Python installation in the virtual environment
+streamlit run CognitiveTestsProcessors.py
+
+REM Pause command to keep the terminal open after the script runs (optional)
+pause
+```
+3. Save and close text document.
+4. Change file type from ".txt" to ".bat"
