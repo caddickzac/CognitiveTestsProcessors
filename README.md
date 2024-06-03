@@ -49,10 +49,13 @@ Input files for each cognitive test must be text (.txt) files.
 
 ## Create a batch file to run program
 1. Create text document on desktop
-2. Enter code below
+2. Enter code below, changing "[working directory]" to your local directory where the streamlit app is saved. 
 
 ```bash
 @echo off
+REM set working directory
+cd [working directory]
+
 REM Activate the virtual environment
 call venv/Scripts/activate
 
