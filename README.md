@@ -67,3 +67,4 @@ pause
 ```
 3. Save and close text document.
 4. Change file type from ".txt" to ".bat"
+5. Now you can run the batch file as a shortcut icon and avoid having to enter any code in the command line!
