@@ -46,3 +46,19 @@ Follow the on-screen instructions to upload your text files and download the pro
 
 ## Input File Format
 Input files for each cognitive test must be text (.txt) files.
+
+## Create a batch file to run program
+1. Create text document on desktop
+2. Enter code below
+
+```bash
+@echo off
+REM Activate the virtual environment
+call venv/Scripts/activate
+
+REM Run the Streamlit app using the Python installation in the virtual environment
+streamlit run CognitiveTestsProcessors.py
+
+REM Pause command to keep the terminal open after the script runs (optional)
+pause
+```
