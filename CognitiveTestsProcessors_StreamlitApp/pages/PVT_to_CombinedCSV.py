@@ -68,8 +68,13 @@ def main():
         file_counter = 0
 
         for uploaded_file in uploaded_files:
-            file_counter += 1  # Increment counter for each new file
             content = uploaded_file.getvalue().decode("utf-16").replace("\t", "").splitlines()
+
+            if not content:  # Check if the file is empty
+                st.warning(f"File {uploaded_file.name} is empty and will be skipped.")
+                continue  # Skip the rest of the loop for this file
+            
+            file_counter += 1  # Increment counter for each new file
 
             # Your processing code to extract metadata and log frame data
             meta_data = extract_metadata_from_content(content)
@@ -100,16 +105,19 @@ def main():
             # Append the DataFrame for this file to the list
             all_data_frames.append(final_df)
 
-        # Combine all individual file DataFrames into one
-        combined_df = pd.concat(all_data_frames, ignore_index=True)
+        if all_data_frames:  # Check if there's any data to combine
+            # Combine all individual file DataFrames into one
+            combined_df = pd.concat(all_data_frames, ignore_index=True)
 
-        # Show and provide download for the combined DataFrame
-        st.dataframe(combined_df)
-        combined_csv = combined_df.to_csv(index=False).encode('utf-8')
-        st.download_button(label="Download Combined CSV",
-                           data=combined_csv,
-                           file_name="combined_processed_data.csv",
-                           mime='text/csv')
+            # Show and provide download for the combined DataFrame
+            st.dataframe(combined_df)
+            combined_csv = combined_df.to_csv(index=False).encode('utf-8')
+            st.download_button(label="Download Combined CSV",
+                               data=combined_csv,
+                               file_name="combined_processed_data.csv",
+                               mime='text/csv')
+        else:
+            st.warning("No data to process. Please upload valid files.")
 
 if __name__ == "__main__":
     main()
