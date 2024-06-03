@@ -3,9 +3,9 @@ import pandas as pd
 import os
 import tempfile
 
-def extract_metadata_from_content(content_lines):
+def extract_metadata_from_content(content_lines, uploaded_file_name):
     """
-    Extracts metadata from content lines based on specified headers.
+    Extracts metadata from content lines based on specified headers and includes the uploaded file name.
     """
     headers = [
         "Experiment",
@@ -19,7 +19,7 @@ def extract_metadata_from_content(content_lines):
         "Display.RefreshRate"
     ]
     
-    meta_data = {}
+    meta_data = {"DataFile.Uploadedname": uploaded_file_name}  # Add uploaded file name to metadata
     
     for line in content_lines:
         parts = line.split(": ", 1)
@@ -77,7 +77,7 @@ def main():
             file_counter += 1  # Increment counter for each new file
 
             # Your processing code to extract metadata and log frame data
-            meta_data = extract_metadata_from_content(content)
+            meta_data = extract_metadata_from_content(content, uploaded_file.name)
             meta_data_df = pd.DataFrame([meta_data])
 
             headers = [
@@ -108,6 +108,11 @@ def main():
         if all_data_frames:  # Check if there's any data to combine
             # Combine all individual file DataFrames into one
             combined_df = pd.concat(all_data_frames, ignore_index=True)
+
+            # Reorder columns to place "DataFile.Uploadedname" before "DataFile.Basename"
+            columns = combined_df.columns.tolist()
+            columns.insert(columns.index("DataFile.Basename"), columns.pop(columns.index("DataFile.Uploadedname")))
+            combined_df = combined_df[columns]
 
             # Show and provide download for the combined DataFrame
             st.dataframe(combined_df)
